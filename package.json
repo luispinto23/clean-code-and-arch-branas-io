@@ -1,0 +1,21 @@
+{
+  "name": "clean-code-and-arch-branas-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc:init": "tsc --init",
+    "build": "tsc",
+    "test": "tsc && jest dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6"
+  }
+}
