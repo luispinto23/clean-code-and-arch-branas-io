@@ -2,10 +2,13 @@ import Coupon from './Coupon';
 import Order from './Order';
 
 export default class PlaceOrder {
-  coupons: Coupon[];
+  coupons: any[];
   orders: Order[];
   constructor() {
-    this.coupons = [new Coupon('VALE20', 20)];
+    this.coupons = [
+      {code: 'VALE20', percentage: 20, expireDate: new Date(2021, 11, 31)},
+      {code: 'VALE25', percentage: 20, expireDate: new Date(2021, 0, 5)}
+    ];
     this.orders = [];
   }
 
@@ -16,7 +19,10 @@ export default class PlaceOrder {
     }
     if (input.coupon) {
       const coupon = this.coupons.find((coupon) => coupon.code === input.coupon);
-      if (coupon) order.addCoupon(coupon);
+      if (coupon) {
+        const orderCoupon = new Coupon(coupon.code, coupon.percentage, coupon.expireDate);
+        order.addCoupon(orderCoupon);
+      }
     }
     const total = order.getTotal();
     this.orders.push(order);
